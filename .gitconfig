@@ -79,6 +79,8 @@
 		fi \
 	}; f"
 
+    up = pull --all --autostash --prune --rebase --tags
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
@@ -137,15 +139,27 @@
 	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = true
 
+[core]
+
+	pager = "diff-so-fancy | less --tabs=4 -RFX"
+
 [diff]
 
 	# Detect copies as well as renames
 	renames = copies
+	compactionHeuristic = true
 
 [diff "bin"]
 
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
+
+[diff "diff-highlight"]
+
+    oldNormal = "red bold"
+    oldHighlight = "red bold 52"
+    newNormal = "green bold"
+    newHighlight = "green bold 22"
 
 [help]
 
@@ -163,6 +177,11 @@
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+[tag]
+
+	gpgsign = true
+    sort = v:refname
 
 # URL shorthands
 
@@ -185,3 +204,9 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[user]
+
+	email = "jonas.stendahl@gmail.com"
+	name = "Jonas Stendahl"
+	signingkey = "48C658F5"
