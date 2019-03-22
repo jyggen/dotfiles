@@ -20,15 +20,18 @@ shopt -s histappend;
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
 
-bind -r "\e[1;5C"
-bind -r "\e[1;5D"
-bind -r "\e[4~"
-bind -r "\e[1~"
+# Make keyboard behave as expected
+if [ -t 1 ] ; then
+	bind -r "\e[1;5C"
+	bind -r "\e[1;5D"
+	bind -r "\e[4~"
+	bind -r "\e[1~"
 
-bind '"\e[1;5D": backward-word'
-bind '"\e[1;5C": forward-word'
-bind '"\e[4~": end-of-line'
-bind '"\e[1~": beginning-of-line'
+	bind '"\e[1;5D": backward-word'
+	bind '"\e[1;5C": forward-word'
+	bind '"\e[4~": end-of-line'
+	bind '"\e[1~": beginning-of-line'
+fi
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
