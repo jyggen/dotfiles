@@ -38,3 +38,11 @@ set convert-meta off
 
 # Use Alt/Meta + Delete to delete the preceding word
 "\e[3;3~": kill-word
+
+# Use Alt + Arrow to go back/forward a word
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
+
+# Use End/Home to go to end/beginning of line
+"\e[4~": end-of-line
+"\e[1~": beginning-of-line
