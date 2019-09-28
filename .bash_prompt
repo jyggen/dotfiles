@@ -107,7 +107,7 @@ else
 fi;
 
 # Set the terminal title and prompt.
-PS1=title; # working directory base name
+PS1="$title"; # working directory base name
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] at ";
